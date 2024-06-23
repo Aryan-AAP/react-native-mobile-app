@@ -1,14 +1,15 @@
 {
   "expo": {
-    "name": "react_native_crashcourse",
-    "slug": "react_native_crashcourse",
+    "name": "Aora",
+    "slug": "aora",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/icon.png",
+        "scheme": "aura",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/splash.png",
+
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,9 +18,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
+
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package":"com.aap.aora"
     },
     "web": {
       "bundler": "metro",
