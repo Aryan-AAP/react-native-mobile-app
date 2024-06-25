@@ -4,14 +4,12 @@ import { View, Text, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import useAppwrite from "../../lib/useAppwrite";
-import { searchPost, searchPosts } from "../../lib/appwrite";
-import EmptyState from "../../components/EmptyState";
-import SearchInput from "../../components/SearchInput";
-import VideoCard from "../../components/VideoCard";
+import { searchPosts } from "../../lib/appwrite";
+import { EmptyState, SearchInput, VideoCard } from "../../components";
 
 const Search = () => {
   const { query } = useLocalSearchParams();
-  const { data: posts, refetch } = useAppwrite(() => searchPost(query));
+  const { data: posts, refetch } = useAppwrite(() => searchPosts(query));
 
   useEffect(() => {
     refetch();
@@ -24,6 +22,7 @@ const Search = () => {
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
           <VideoCard
+          $id={item.$id}
             title={item.title}
             thumbnail={item.thumbnail}
             video={item.video}

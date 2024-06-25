@@ -11,7 +11,8 @@ import logout from "../assets/icons/logout.png";
 import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
-
+import heart from "../assets/heart.png"
+import white_heart from "../assets/white_heart.png"
 export default {
   play,
   bookmark,
@@ -20,10 +21,12 @@ export default {
   profile,
   leftArrow,
   menu,
+  white_heart,
   search,
   upload,
   rightArrow,
   logout,
   eyeHide,
   eye,
+  heart
 };

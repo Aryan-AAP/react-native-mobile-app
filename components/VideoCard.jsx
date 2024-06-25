@@ -3,10 +3,22 @@ import { ResizeMode, Video } from "expo-av";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { icons } from "../constants";
+import { useGlobalContext } from "../context/GlobalProvider";
+import { pushBookmark } from "../lib/appwrite";
 
-const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
+const VideoCard = ({ title, creator, avatar, thumbnail, video, $id}) => {
+
+  const { user } = useGlobalContext();
   const [play, setPlay] = useState(false);
-
+  const [heart, setHeart] = useState(icons.white_heart)
+  const lol=async()=>{
+    pushBookmark(
+       user.$id
+      ,$id,
+      user.username
+    )
+            
+  }
   return (
     <View className="flex flex-col items-center px-4 mb-14">
       <View className="flex flex-row gap-3 items-start">
@@ -35,6 +47,9 @@ const VideoCard = ({ title, creator, avatar, thumbnail, video }) => {
           </View>
         </View>
 
+        <View className="pt-2" onTouchStart={()=>lol()} >
+          <Image source={ heart }  className="w-5 h-5" resizeMode="contain" />
+        </View>
         <View className="pt-2">
           <Image source={icons.menu} className="w-5 h-5" resizeMode="contain" />
         </View>

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link, router } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
 
-// import { View, Text, ScrollView, Dimensions, Alert, Image } from "react-native";
-import Whyerrorinbutton from "../../components/Whyerrorinbutton";
 import { images } from "../../constants";
-import FormField from "../../components/FormField";
 import { createUser } from "../../lib/appwrite";
+import { CustomButton, FormField } from "../../components";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 const SignUp = () => {
@@ -79,7 +78,7 @@ const SignUp = () => {
             otherStyles="mt-7"
           />
 
-          <Whyerrorinbutton
+          <CustomButton
             title="Sign Up"
             handlePress={submit}
             containerStyles="mt-7"

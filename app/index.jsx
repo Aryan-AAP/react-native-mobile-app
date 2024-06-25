@@ -1,18 +1,20 @@
 import { StatusBar } from "expo-status-bar";
-import {  Redirect, router } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { images } from "../constants";
 
-import CustomButton from "../components/CustomButton"
+import { images } from "../constants";
+import { CustomButton, Loader } from "../components";
 import { useGlobalContext } from "../context/GlobalProvider";
 
-const App = () => {
+const Welcome = () => {
   const { loading, isLogged } = useGlobalContext();
 
   if (!loading && isLogged) return <Redirect href="/home" />;
+
   return (
     <SafeAreaView className="bg-primary h-full">
+      <Loader isLoading={loading} />
 
       <ScrollView
         contentContainerStyle={{
@@ -55,7 +57,6 @@ const App = () => {
             title="Continue with Email"
             handlePress={() => router.push("/sign-in")}
             containerStyles="w-full mt-7"
-            // isLoading="true" textStyles="asdf"
           />
         </View>
       </ScrollView>
@@ -65,4 +66,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Welcome;
